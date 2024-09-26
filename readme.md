@@ -17,56 +17,76 @@ In.Orbit is a goal management application designed to help users create, track, 
 
 ## How to Run the Project
 
-### 1. Clone the Repositories
+### Web
 
-Start by cloning both the **frontend** and **backend** repositories:
+1. Clone the web version repository:
+
+   ```bash
+   git clone https://github.com/nilloferreiira/InOrbit-web.git
+   ```
+
+2. Navigate to the web project directory and install the dependencies:
+   ```bash
+   cd InOrbit-web
+   npm install
+   ```
+
+### API
+
+1. Clone the API repository:
+   ```bash
+   git clone https://github.com/nilloferreiira/InOrbit-API.git
+   ```
+2. Navigate to the API project directory and install the dependencies:
+   ```bash
+   cd InOrbit-API
+   npm install
+   ```
+
+### Database
+
+1. Ensure you have Docker installed on your machine.
+2. In the API directory, run the following command to start PostgreSQL with Docker:
+   ```bash
+   docker-compose up -d
+   ```
+3. Add the database connection URL in the `.env` file.
+   Example:
+   ```
+   DATABASE_URL=postgres://user:password@localhost:5432/inorbit
+   ```
+
+### Migrations
+
+1. Ensure you have **Drizzle Kit** installed:
+
+   ```bash
+   npm install drizzle-kit --save-dev
+   ```
+
+2. Generate the migrations with Drizzle:
+
+   ```bash
+   npx drizzle-kit generate
+   ```
+
+3. Run the migrations to create the tables in the database:
+   ```bash
+   npx drizzle-kit migrate
+   ```
+
+### Seed
+
+1. After the migrations, run the following command to seed the database with initial data:
+   ```bash
+   npm run seed
+   ```
+
+### Start the application
 
 ```bash
-# Clone the frontend (web) repository
-git clone https://github.com/nilloferreiira/InOrbit-web.git
-cd InOrbit-web
-npm install
-
-# Go back to the root directory and clone the backend (API) repository
-cd ..
-git clone https://github.com/nilloferreiira/InOrbit-API.git
-cd InOrbit-API
-npm install
-```
-
-### 2. Set Up PostgreSQL with Docker
-
-Ensure you have **Docker** installed. Then, start a PostgreSQL instance using Docker Compose:
-
-```bash
-docker-compose up -d
-```
-
-This will set up the PostgreSQL database. Once the database is running, make sure to update the `.env` file in the **API** repository with the correct database connection URL.
-
-### 3. Seed the Database
-
-Before running the application, you'll need to seed the database with initial data:
-
-```bash
-npm run seed
-```
-
-### 4. Start the Applications
-
-Now that everything is set up, start both the frontend and backend services:
-
-- **API (Backend)**:
-
-  ```bash
   npm run dev
-  ```
-
-- **Web (Frontend)**:
-  ```bash
-  cd ../InOrbit-web
-  npm run dev
-  ```
+```
 
 Your application should now be running locally.
 

@@ -102,4 +102,4 @@ Your application should now be running locally.
 
 For more information or questions, please contact me via email: [nilloferreiira@gmail.com](mailto:nilloferreiira@gmail.com)
 
-![screenshot](src/assets/readme/readmeimg.png)
+![screenshot](/public/assets/readmeimg.png)
